@@ -14,32 +14,36 @@ export const theme1: ThemeType = {
         primary: {
             dark: '#503e9d',
             light: '#503e9d',
-            main: '#503e9d',
+            transparent: '#503e9d10',
+            
         },
         secondary: {
-
             dark: '#fb6d3a',
             light: '#fb6d3a',
-            main: '#fb6d3a',
+            transparent: '#fb6d3a10',
         },
         success: {
             dark: '#419d3e',
             light: '#419d3e',
-            main: '#419d3e',
+            transparent: '#419d3e10',
         },
         warning: {
             dark: '#facd5d',
             light: '#facd5d',
-            main: '#facd5d',
+            transparent: '#facd5d10',
         },
         text: {
             light: '#182135',
             dark: '#f7fafc',
-            gray: "#777777"
+            gray: "#A3A3A4"
         },
         bg: {
             dark: '#2d2d2d',
             light: '#f7f7f7',
+        },
+        border:{
+            dark: '#1d1d1d',
+            light: '#e2e2e2',
         }
 
     },
@@ -51,6 +55,11 @@ export const theme1: ThemeType = {
         h5: {
             fontSize: 20,
             fontWeight: '400',
+        },
+        inputLabel:{
+            fontSize:12,
+            fontWeight:'700',
+            textTransform:'uppercase',
         }
     }),
 

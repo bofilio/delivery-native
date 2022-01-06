@@ -23,7 +23,7 @@ export const Logo = ({ variant, includeText = true }: LogoType) => {
 return (
     <View style={tailwind('flex flex-row items-center ')} >
         <Image style={tailwind(logosize)} source={logoimg} resizeMode='contain' />
-        {includeText && <Text style={tailwind('text-lg text-white')}>Nibble</Text>}
+        {includeText && <Text style={tailwind('text-xl text-white')}>Nibble</Text>}
     </View>
 )
     

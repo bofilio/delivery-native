@@ -1,37 +1,21 @@
 
-import React, { useReducer, createContext } from 'react'
+import React, { useReducer, createContext, useState } from 'react'
 import { theme1, ThemeType } from '../constants'
-/******************************************************************Reducers */
-type actionType = {
-    type: "TOGGLE_MODE" | "CHANGE_THEME",
-    payload?: any
-}
-type ThemereducerProps = {
-    state: ThemeType,
-    action: actionType
-}
 
-function themeReducer({ state, action }: ThemereducerProps) {
-    switch (action.type) {
-        case "TOGGLE_MODE":
-            return { ...state, mode: state.mode == "dark" ? "light" : "dark" }
-        case "CHANGE_THEME":
-            return action.payload
-    }
 
-}
 /*********************************************************************************Context */
-export const ThemeContext = createContext<{ theme: ThemeType, dispatch: React.Dispatch<any> }>(
+export const ThemeContext = createContext<{ theme: ThemeType, setTheme: React.Dispatch<React.SetStateAction<ThemeType>> }>(
     {
         theme: theme1,
-        dispatch: () => null
+        setTheme : ()=> null
     }
 );
 
 export const ThemeProvider: React.FC<{}> = ({ children }) => {
-    const [theme, dispatch] = useReducer(themeReducer, theme1)
+    const [theme, setTheme] = useState(theme1)
+    
     return (
-        <ThemeContext.Provider value={{ theme, dispatch }}>
+        <ThemeContext.Provider value={{ theme, setTheme }}>
             {children}
         </ThemeContext.Provider>
     )
