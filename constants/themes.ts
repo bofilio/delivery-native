@@ -3,8 +3,24 @@ import { StyleSheet } from "react-native"
 
 export type ThemeType = {
     mode: 'dark' | 'light',
-    colors: any,
-    typography: any
+    colors: {
+        primary:{},
+        secondary:{},
+        success:{},
+        warning:{},
+        text:{},
+        bg:{},
+        border:{}
+    },
+    typography: {
+        h1:{},
+        h2:{},
+        h3:{},
+        h4:{},
+        h5:{},
+        h6:{},
+        inputLabel:{},
+    }
 }
 
 
@@ -56,9 +72,21 @@ export const theme1: ThemeType = {
             fontSize: 36,
             fontWeight: '700',
         },
+        h3: {
+            fontSize: 30,
+            fontWeight: '700',
+        },
+        h4: {
+            fontSize: 24,
+            fontWeight: '700',
+        },
         h5: {
             fontSize: 20,
-            fontWeight: '400',
+            fontWeight: '700',
+        },
+        h6: {
+            fontSize: 14,
+            fontWeight: '700',
         },
         inputLabel:{
             fontSize:12,

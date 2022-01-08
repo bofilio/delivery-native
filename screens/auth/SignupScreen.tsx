@@ -5,11 +5,12 @@ import { Banner, Logo, MyStatusBar, Space } from '../../components/util';
 import { ThemeContext } from '../../contexts';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { AuthInput, Button } from '../../components/inputs';
-
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { RootDrawerParamList } from '../types';
-type Props = NativeStackScreenProps<RootDrawerParamList, 'Signup'>;
+import { DrawerScreenProps } from '@react-navigation/drawer';
+
+
+type Props = DrawerScreenProps<RootDrawerParamList, 'Signup'>;
 
 export const SignupScreen = ({ route, navigation }: Props) => {
     const { theme, setTheme } = useContext(ThemeContext)
