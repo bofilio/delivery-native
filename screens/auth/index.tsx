@@ -1,3 +1,3 @@
-export * from './Signin'
-export * from './Signup'
-export * from './ForgetPass'
+export * from './SigninScreen'
+export * from './SignupScreen'
+export * from './ForgetPassScreen'

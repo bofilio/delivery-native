@@ -52,6 +52,10 @@ export const theme1: ThemeType = {
             fontSize: 48,
             fontWeight: '700',
         },
+        h2: {
+            fontSize: 36,
+            fontWeight: '700',
+        },
         h5: {
             fontSize: 20,
             fontWeight: '400',

@@ -9,9 +9,10 @@ type AuthInputProps={
     label:string,
     placeHolder?:string,
     icon_name:any,
+    type?:'password'|'email'|'text'
 }
 
-export const AuthInput = ({label,placeHolder="",icon_name}:AuthInputProps) => {
+export const AuthInput = ({label,placeHolder="",icon_name,type='text'}:AuthInputProps) => {
     const { theme, setTheme } = useContext(ThemeContext)
     const {mode, colors, typography}=theme;
 
@@ -24,7 +25,7 @@ export const AuthInput = ({label,placeHolder="",icon_name}:AuthInputProps) => {
             <Space direction='v' size={16}/>
             <View style={[tailwind("flex-grow flex border-b justify-around"), { borderColor: colors.border[mode] }]}>
                 <Text style={[typography.inputLabel, { color: colors.text[mode] }]}>{label}</Text>
-                <TextInput placeholder={placeHolder} style={[tailwind('flex-grow'), { color: colors.text[mode] }]} placeholderTextColor={colors.text.gray} />
+                <TextInput secureTextEntry={type==='password'} placeholder={placeHolder} style={[tailwind('flex-grow'), { color: colors.text[mode] }]} placeholderTextColor={colors.text.gray} />
             </View>
         </View>
     )

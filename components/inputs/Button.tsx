@@ -5,11 +5,12 @@ type ButtonProps={
     text:string,
     bg_color?:string,
     text_color:string,
-    onPress?:()=>{},
+    onPress?:()=>void,
+    style?:{}
 }
-export const Button = ({text,bg_color="",text_color,onPress}:ButtonProps) => {
+export const Button = ({text,bg_color="",text_color,onPress, style= tailwind(' w-full ')}:ButtonProps) => {
     return (
-        <TouchableOpacity onPress={onPress} style={[{backgroundColor:bg_color}, tailwind('rounded-lg p-4 w-full flex items-center justify-center')]}>
+        <TouchableOpacity onPress={onPress} style={[{backgroundColor:bg_color}, tailwind("flex items-center rounded-lg p-4 justify-center"),style ]}>
             <Text style={[{color:text_color}]} > {text} </Text>
         </TouchableOpacity>
     )
