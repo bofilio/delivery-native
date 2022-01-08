@@ -6,10 +6,11 @@ import tailwind from 'tailwind-rn';
 import { ThemeProvider } from './contexts';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItem, DrawerItemList } from '@react-navigation/drawer';
-import { ForgotPassScreen, HomeScreen, SigninScreen, SignupScreen } from './screens';
+import { ChatScreen, ExploreScreen, FavoriteScreen, ForgotPassScreen, HomeScreen, OrdersScreen, SettingsScreen, SigninScreen, SignupScreen } from './screens';
 import { NavigationContainer } from '@react-navigation/native';
 import { RootDrawerParamList } from './screens/types';
 import { AdditionalDrawerContent } from './components/menus';
+import { Navigation } from './navigation';
 
 
 
@@ -20,14 +21,7 @@ const Drawer = createDrawerNavigator<RootDrawerParamList>();
 export default function App() {
   return (
     <ThemeProvider>
-      <NavigationContainer>
-        <Drawer.Navigator screenOptions={{ headerShown: false }} initialRouteName="Home" drawerContent={(props) => <AdditionalDrawerContent {...props} />}>
-          <Drawer.Screen name="Home" component={HomeScreen} />
-          <Drawer.Screen name="Signin" component={SigninScreen} />
-          <Drawer.Screen name="Signup" component={SignupScreen} />
-          <Drawer.Screen name="ForgotPass" component={ForgotPassScreen} />
-        </Drawer.Navigator>
-      </NavigationContainer>
+      <Navigation/>
     </ThemeProvider>
 
   );

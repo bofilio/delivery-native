@@ -4,13 +4,13 @@ import { StyleSheet } from "react-native"
 export type ThemeType = {
     mode: 'dark' | 'light',
     colors: {
-        primary:{},
-        secondary:{},
-        success:{},
-        warning:{},
-        text:{},
-        bg:{},
-        border:{}
+        primary:any,
+        secondary:any,
+        success:any,
+        warning:any,
+        text:any,
+        bg:any,
+        border:any
     },
     typography: {
         h1:{},

@@ -8,16 +8,16 @@ import { TopBar } from '../../components/layout.tsx';
 import { RootDrawerParamList } from '../types';
 
 
-type Props = DrawerScreenProps<RootDrawerParamList, 'Settings'>;
+type Props = DrawerScreenProps<RootDrawerParamList, 'Favourite'>;
 
-export const SettingsScreen = ({ route, navigation }: Props) => {
+export const FavouriteScreen = ({ route, navigation }: Props) => {
     const { theme, setTheme } = useContext(ThemeContext)
     const { mode, colors, typography } = theme;
     return (
         <SafeAreaView>
             <TopBar navigation={navigation} />
             <View style={tailwind("flex h-full bg-red-400 justify-center items-center")}>
-                <Text style={typography.h3}>Settings Screen</Text>
+                <Text style={typography.h3}>Favourite Screen</Text>
             </View>
         </SafeAreaView>
 
