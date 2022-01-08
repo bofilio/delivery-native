@@ -16,9 +16,7 @@ export const ForgotPassScreen = ({ route, navigation }: Props) => {
     const { theme, setTheme } = useContext(ThemeContext)
     const { mode, colors, typography } = theme;
 
-    return (
-        <Pressable onLongPress={() => setTheme({ ...theme, mode: mode === "dark" ? 'light' : 'dark' })}>
-
+    return ( 
             <SafeAreaView>
                 <KeyboardAvoidingView style={[{ backgroundColor: colors.bg[mode] }, tailwind('h-full')]} behavior={Platform.OS === "ios" ? "padding" : "height"} enabled  >
                     <ScrollView>
@@ -39,10 +37,6 @@ export const ForgotPassScreen = ({ route, navigation }: Props) => {
                     </ScrollView>
                 </KeyboardAvoidingView>
             </SafeAreaView>
-
-
-
-        </Pressable>
 
     )
 

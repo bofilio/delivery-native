@@ -18,8 +18,6 @@ export const SignupScreen = ({ route, navigation }: Props) => {
 
     return (
         <SafeAreaView>
-            <Pressable onLongPress={() => setTheme({ ...theme, mode: mode === "dark" ? 'light' : 'dark' })}>
-
                 <KeyboardAvoidingView style={[{ backgroundColor: colors.bg[mode] }, tailwind('h-full')]} behavior={Platform.OS === "ios" ? "padding" : "height"} enabled  >
                     <ScrollView>
                         <Banner />
@@ -50,10 +48,7 @@ export const SignupScreen = ({ route, navigation }: Props) => {
                         <Space direction='h' size={50} />
                     </ScrollView>
                 </KeyboardAvoidingView>
-            </Pressable>
         </SafeAreaView>
-
-
     )
 
 

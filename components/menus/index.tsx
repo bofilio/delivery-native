@@ -1,7 +1,7 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { DrawerContentScrollView, DrawerItem, DrawerItemList, DrawerContentComponentProps } from "@react-navigation/drawer";
 import { Logo, Space } from "../util";
-import { View, Text, Pressable } from "react-native";
+import { View, Text, Pressable, Switch } from "react-native";
 import tailwind from 'tailwind-rn'
 import { ChatIcon, ExploreIcon, FavouriteIcon, HomeIcon, OrdersIcon, SettingsIcon, SignoutIcon } from "../icons";
 import { ThemeContext } from "../../contexts";
@@ -11,10 +11,12 @@ export function AdditionalDrawerContent(props: DrawerContentComponentProps) {
     const { mode, colors, typography } = theme;
     return (
         <DrawerContentScrollView {...props}>
+
             <View style={tailwind('p-2 flex flex-row justify-between items-center')}>
                 <Logo variant="sm" includeText={true} />
+
                 <Pressable onPress={() => { }}>
-                    <SignoutIcon size={24} color={ colors.text[mode]}/>
+                    <SignoutIcon size={24} color={colors.text[mode]} />
                 </Pressable>
 
             </View>
@@ -26,14 +28,34 @@ export function AdditionalDrawerContent(props: DrawerContentComponentProps) {
                         key={item.key}
                         label={item.label}
                         onPress={() => navigation.navigate(item.screen)}
-                        icon={item.icon} focused={state.routeNames[state.index] === item.label} 
+                        icon={item.icon} focused={state.routeNames[state.index] === item.label}
                         activeBackgroundColor={colors.primary[mode]}
                         activeTintColor={colors.text.dark}
                         inactiveTintColor={colors.text[mode]}
-                        />
-                        
+                    />
+
                 ))
             }
+
+            <View style={tailwind('flex flex-row items-center p-6')}>
+                <Text style={{ color: colors.text[mode] }}>
+                    Switch Mode
+                </Text>
+                <Space direction="v" size={32} />
+
+                <Switch
+                    trackColor={{ false: colors.text.gray, true: colors.primary[mode] }}
+                    thumbColor={mode === 'dark' ? colors.secondary[mode] : colors.text.dark}
+                    ios_backgroundColor="#3e3e3e"
+                    onValueChange={() => setTheme({ ...theme, mode: mode === 'dark' ? 'light' : 'dark' })}
+                    value={mode === 'dark'}
+                />
+                <Space direction="v" size={4} />
+                <Text style={{ color: colors.text[mode] }}>
+                    {mode}
+                </Text>
+
+            </View>
 
 
         </DrawerContentScrollView>
