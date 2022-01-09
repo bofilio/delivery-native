@@ -47,7 +47,7 @@ export const SearchIcon = ({focused, color, size}:any) => {
         <MaterialIcons color={color} size={size} name='search'  />
     )
 }
-export const ClodeIcon = ({focused, color, size}:any) => {
+export const CloseIcon = ({focused, color, size}:any) => {
     return (
         <MaterialIcons color={color} size={size} name='close'  />
     )

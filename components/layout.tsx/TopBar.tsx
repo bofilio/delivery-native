@@ -1,15 +1,17 @@
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import React, { useContext, useState } from 'react'
-import { Pressable, TextInput, View } from 'react-native'
+import { Pressable, TextInput, View, Text, Modal } from 'react-native'
 import tailwind from 'tailwind-rn'
 import { ThemeContext } from '../../contexts'
+import { ModalProvider, ToggleModal } from '../../contexts/ModalContext'
 import { MenuIcon, SearchIcon, UserIcon } from '../icons'
 import { Button, SearchInput } from '../inputs'
+import ProfileMenuModal from '../modals'
 import { Space } from '../util'
 
 
 export const TopBar = ({ navigation }: any) => {
-    
+
     const { theme, setTheme } = useContext(ThemeContext)
     const { mode, colors, typography } = theme;
     return (
@@ -18,12 +20,18 @@ export const TopBar = ({ navigation }: any) => {
             <Pressable onPress={() => navigation.toggleDrawer()}>
                 <MenuIcon size={24} color={colors.text[mode]} />
             </Pressable>
-            
-            <SearchInput/>
-            
-            <Pressable onPress={() => {}}>
-                <UserIcon size={24} color={colors.text[mode]} />
-            </Pressable>
+
+            <SearchInput />
+
+            <ModalProvider>
+                <ToggleModal>
+                    <UserIcon size={24} color={colors.text[mode]} />
+                 
+                </ToggleModal>
+                <ProfileMenuModal/>
+  
+            </ModalProvider>
+
 
         </View>
     )

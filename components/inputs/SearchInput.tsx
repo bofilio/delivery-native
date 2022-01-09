@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Pressable, TextInput, View } from 'react-native'
 import tailwind from 'tailwind-rn'
-import { ClodeIcon, SearchIcon } from '../icons'
+import { CloseIcon, SearchIcon } from '../icons'
 
 export const SearchInput = () => {
     const [text, setText] = useState('')
@@ -15,7 +15,7 @@ export const SearchInput = () => {
             {
                 text!='' &&
                 <Pressable style={tailwind('absolute right-2')} onPress={()=>setText('')}>
-                    <ClodeIcon />
+                    <CloseIcon />
                 </Pressable>
             }
 
