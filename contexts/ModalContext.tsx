@@ -20,7 +20,6 @@ export const ModalProvider: React.FC<{}> = ({ children }) => {
 
 export const ToggleModal:React.FC<{}> =({children})=>{
     const { isOpen, setOpen } = useContext(ModalContext)
-    console.log(isOpen)
     return(
         <Pressable onPress={()=>setOpen(!isOpen)}> 
             {children}

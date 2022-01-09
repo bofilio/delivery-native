@@ -3,6 +3,7 @@ export type RootDrawerParamList = {
     Signin: undefined;
     Signup: undefined;
     ForgotPass: undefined;
+    Signout:undefined,
     Explore:undefined;
     Category: undefined;
     Restaurant:undefined;

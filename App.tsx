@@ -11,6 +11,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { RootDrawerParamList } from './screens/types';
 import { AdditionalDrawerContent } from './components/menus';
 import { Navigation } from './navigation';
+import { AuthenticationProvider } from './contexts/AuthContext';
 
 
 
@@ -20,9 +21,12 @@ const Drawer = createDrawerNavigator<RootDrawerParamList>();
 
 export default function App() {
   return (
-    <ThemeProvider>
-      <Navigation/>
-    </ThemeProvider>
+    <AuthenticationProvider>
+      <ThemeProvider>
+        <Navigation />
+      </ThemeProvider>
+    </AuthenticationProvider>
+
 
   );
 }
