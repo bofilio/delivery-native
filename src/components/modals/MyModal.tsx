@@ -1,9 +1,9 @@
 import React, { useContext } from 'react'
 import { Modal, View, Text, Pressable } from 'react-native'
 import tailwind from 'tailwind-rn'
-import { AuthenticationContext, ModalContext } from '../../contexts'
-import { Space } from '../util'
-import AsyncStorage from '@react-native-async-storage/async-storage'
+import {  ModalContext } from '../../contexts'
+
+
 
 export const MyModal:React.FC<{}> =  ({children}) => {
     const { isOpen, setOpen } = useContext(ModalContext)

@@ -1,5 +1,5 @@
 
-import React, { useReducer, createContext, useState } from 'react'
+import React, { createContext, useState } from 'react'
 import { theme1, ThemeType } from '../constants'
 
 

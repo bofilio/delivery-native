@@ -6,6 +6,6 @@ export const MyStatusBar = () => {
     const { theme, setTheme } = useContext(ThemeContext)
     const { mode, colors, typography } = theme;
     return (
-        <SafeAreaView style={{ flex: 0, backgroundColor: colors.bg[mode]}} />
+        <SafeAreaView style={{ backgroundColor: colors.primary[mode]}} />
     )
 }

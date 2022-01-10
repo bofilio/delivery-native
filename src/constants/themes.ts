@@ -7,7 +7,9 @@ export type ThemeType = {
         primary:any,
         secondary:any,
         success:any,
+        info:any,
         warning:any,
+        danger:any,
         text:any,
         bg:any,
         border:any
@@ -42,6 +44,16 @@ export const theme1: ThemeType = {
             dark: '#419d3e',
             light: '#419d3e',
             transparent: '#419d3e10',
+        },
+        info:{
+            dark: '#2ACAEA',
+            light: '#2ACAEA',
+            transparent: '#2ACAEA10',
+        },
+        danger:{
+            dark: '#FF3333',
+            light: '#FF3333',
+            transparent: '#FF333310',
         },
         warning: {
             dark: '#facd5d',

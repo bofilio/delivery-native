@@ -1,34 +1,57 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { View, Text, Image, ImageBackground, StyleSheet, Pressable, TextInput, KeyboardAvoidingView, ScrollView, Platform, SafeAreaView } from 'react-native';
+import React, { useContext, useEffect, useLayoutEffect, useState } from 'react'
+import { View, Text, Image, ImageBackground, StyleSheet, Pressable, TextInput, KeyboardAvoidingView, ScrollView, Platform, SafeAreaView, ActivityIndicator } from 'react-native';
 import tailwind from 'tailwind-rn';
-import { Banner, Logo, MyStatusBar, Space } from '../../components/util';
-import { ThemeContext } from '../../contexts';
+import { Banner, Logo, MyStatusBar, Space, TransitionScreen } from '../../components/util';
+import { AlertContext, ThemeContext } from '../../contexts';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { AuthInput, Button } from '../../components/inputs';
 import { RootDrawerParamList } from '../types';
 import { DrawerScreenProps } from '@react-navigation/drawer';
 import { payLoadType, useFireBaseAuth } from '../../hooks';
+import { isLoaded, isLoading } from 'expo-font';
 
 type Props = DrawerScreenProps<RootDrawerParamList, 'Signin'>;
 
 export const SigninScreen = ({ route, navigation }: Props) => {
-    /**input data  */
+
+    /** update input data with state */
     const [email, setEmail] = useState('')
     const [password, setPAssword] = useState('')
 
-    /**Authentication */
+    /**Authentication Hook */
     const { state, performAction } = useFireBaseAuth();
-
-    async function handleSubmit() {
-        await performAction('signin', { email: email, password: password });
+    const {isloading,data:uid,errormsg}=state
+    async function Signin() {
+        await performAction('signin', { email: email, password: password })
     }
-    useEffect(() => {
-        state.uid ? navigation.navigate('Home') : "do somthing like try again";
-    }, [state])
-    /**Theme */
+
+    /**ThemeProvider */
     const { theme, setTheme } = useContext(ThemeContext)
     const { mode, colors, typography } = theme;
 
+    /**AlertProvider  */
+    const {alert,setAlert} = useContext(AlertContext)
+
+    /**Side Effects */
+    useLayoutEffect(() => {
+        if(uid){
+            setAlert({status:undefined, message:null})
+            navigation.navigate('Home')
+        }
+        if(errormsg){
+            setAlert({status:'danger', message:state.errormsg})
+        }
+    }, [uid,errormsg])
+
+    /**Ui */
+    
+    
+    if (isloading) {
+        return (
+            <TransitionScreen />
+        )
+    }
+    
     return (
         <SafeAreaView>
             <KeyboardAvoidingView style={[{ backgroundColor: colors.bg[mode] }, tailwind('h-full')]} behavior={Platform.OS === "ios" ? "padding" : "height"} enabled  >
@@ -43,13 +66,13 @@ export const SigninScreen = ({ route, navigation }: Props) => {
                                 onChangeText={setEmail}
                                 label='Email adress' icon_name='email-outline' placeHolder='Enter your Email Adress'
                             />
-                            
+
                             <Space direction='h' size={16} />
                             <AuthInput
                                 onChangeText={setPAssword}
                                 type='password' label='Password' icon_name='email-outline' placeHolder='Enter your Password'
                             />
-                           
+
                         </View>
                         <Space direction='h' size={32} />
                         <View >
@@ -57,7 +80,7 @@ export const SigninScreen = ({ route, navigation }: Props) => {
                                 text='Sign in'
                                 text_color={colors.primary[mode]}
                                 bg_color={colors.primary.transparent}
-                                onPress={()=>handleSubmit()}
+                                onPress={() => Signin()}
 
                             />
                             <Space direction='h' size={8} />
@@ -72,6 +95,9 @@ export const SigninScreen = ({ route, navigation }: Props) => {
             </KeyboardAvoidingView>
         </SafeAreaView>
     )
+
+
+
 }
 
 ////// Nb: longPRes any screen to toggle theme mode to (dark | light )
