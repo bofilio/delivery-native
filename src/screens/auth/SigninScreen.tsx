@@ -1,27 +1,26 @@
-import React, { useContext, useEffect, useLayoutEffect, useState } from 'react'
-import { View, Text, Image, ImageBackground, StyleSheet, Pressable, TextInput, KeyboardAvoidingView, ScrollView, Platform, SafeAreaView, ActivityIndicator } from 'react-native';
+import React, { useContext, useLayoutEffect, useState } from 'react'
+import { View, Text,  KeyboardAvoidingView, ScrollView, Platform } from 'react-native';
 import tailwind from 'tailwind-rn';
-import { Banner, Logo, MyStatusBar, Space, TransitionScreen } from '../../components/util';
+import { Banner, Space, TransitionScreen } from '../../components/util';
 import { AlertContext, ThemeContext } from '../../contexts';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { AuthInput, Button } from '../../components/inputs';
-import { RootDrawerParamList } from '../types';
+import { RootDrawerParamList } from '../../navigation';
 import { DrawerScreenProps } from '@react-navigation/drawer';
 import { useFireBaseAuth } from '../../hooks';
-import { isLoaded, isLoading } from 'expo-font';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 type Props = DrawerScreenProps<RootDrawerParamList, 'Signin'>;
 type signInProps = {
     email: string,
     password: string,
 }
-export const SigninScreen = ({ route, navigation }: Props) => {
+export const SigninScreen = ({ navigation }: Props) => {
     /**ThemeProvider */
     const { theme } = useContext(ThemeContext)
     const { mode, colors, typography } = theme;
 
     /**AlertProvider  */
-    const { alert, setAlert } = useContext(AlertContext)
+    const { setAlert } = useContext(AlertContext)
 
     /** update input data with state */
     const [inputs, setInputs] = useState({ email: '', password: '' } as signInProps)
@@ -44,8 +43,7 @@ export const SigninScreen = ({ route, navigation }: Props) => {
         }
     }, [uid, errormsg])
 
-    /**Ui */
-
+    /**Ui*/
 
     if (isloading) {
         return (

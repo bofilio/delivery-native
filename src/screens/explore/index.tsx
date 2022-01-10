@@ -5,7 +5,7 @@ import { DrawerScreenProps } from '@react-navigation/drawer';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { ThemeContext } from '../../contexts';
 import { TopBar } from '../../components/layout.tsx';
-import { RootDrawerParamList } from '../types';
+import { RootDrawerParamList } from '../../navigation';
 
 
 type Props = DrawerScreenProps<RootDrawerParamList, 'Explore'>;

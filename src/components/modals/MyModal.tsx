@@ -18,11 +18,9 @@ export const MyModal:React.FC<{}> =  ({children}) => {
             visible={isOpen}
             onRequestClose={() => { setOpen(prev => !prev) }}
         >
-            <Pressable style={tailwind('absolute w-full h-full bg-black bg-opacity-10')} onPress={() => setOpen(prev => !prev)}>
+            <Pressable style={tailwind('absolute w-full h-full bg-black bg-opacity-10')} onPress={() => setOpen(false)}>
             </Pressable>
             {children}
-            
-
         </Modal >
 
 

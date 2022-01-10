@@ -57,3 +57,8 @@ export const UserIcon = ({focused, color, size}:any) => {
         <AntDesign color={color} size={size} name='user'  />
     )
 }
+export const CartIcon = ({focused, color, size}:any) => {
+    return (
+        <MaterialCommunityIcons color={color} size={size} name="cart-outline" />
+    )
+}

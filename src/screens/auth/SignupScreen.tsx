@@ -6,7 +6,7 @@ import { AlertContext, ThemeContext } from '../../contexts';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { AuthInput, Button } from '../../components/inputs';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { RootDrawerParamList } from '../types';
+import { RootDrawerParamList } from '../../navigation';
 import { DrawerScreenProps } from '@react-navigation/drawer';
 import { useFireBaseAuth } from '../../hooks';
 
@@ -93,7 +93,7 @@ export const SignupScreen = ({ route, navigation }: Props) => {
                                 <Space direction='v' size={4} />
                                 <Button
                                     text=' Sign in'
-                                    style={tailwind('p-0')}
+                                    style={tailwind('p-2 rounded-full')}
                                     text_color={colors.secondary[mode]}
                                     onPress={() => navigation.navigate('Signin')}
                                 />

@@ -18,7 +18,7 @@ export const TopBar = ({ navigation }: any) => {
         await performAction('signout');
     }
     const { setAlert } = useContext(AlertContext)
-    const { uid } = useContext(AuthenticationContext)
+    const { user } = useContext(AuthenticationContext)
     const { theme, setTheme } = useContext(ThemeContext)
     const { mode, colors, typography } = theme;
 
@@ -47,9 +47,9 @@ export const TopBar = ({ navigation }: any) => {
                 <MyModal>
                     <View style={[tailwind('absolute right-1 top-12 bg-white py-4 px-8 rounded-lg '), { backgroundColor: colors.bg[mode] }]} >
                         {
-                            uid != null &&
+                            user != null &&
                             <View>
-                                <Text style={typography.h6}>{uid}</Text>
+                                <Text style={typography.h6}>{user.displayName || user.email}</Text>
                                 <Pressable style={[tailwind('py-2'),]} onPress={() => navigation.navigate('Profile')}>
                                     <Text style={{ color: colors.text[mode] }}>Profile</Text>
                                 </Pressable>
@@ -61,7 +61,7 @@ export const TopBar = ({ navigation }: any) => {
 
                         }
                         {
-                            uid === null &&
+                            !user  &&
                             <View>
                                 <Pressable style={[tailwind('py-2'),]} onPress={() => navigation.navigate('Signin')}>
                                     <Text style={{ color: colors.text[mode] }}>Sign in</Text>

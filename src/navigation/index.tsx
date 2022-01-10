@@ -1,14 +1,12 @@
 import 'react-native-gesture-handler';
 import React, { useContext } from 'react';
-import { View, Text, StyleSheet, StyleProp } from 'react-native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import { ChatScreen, ExploreScreen, FavouriteScreen, ForgotPassScreen, HomeScreen, OrdersScreen, SettingsScreen, SigninScreen, SignoutScreen, SignupScreen } from '../screens';
+import { ChatScreen, ExploreScreen, FavouriteScreen, ForgotPassScreen, HomeScreen, OrdersScreen, SettingsScreen, SigninScreen, SignupScreen } from '../screens';
 import { NavigationContainer } from '@react-navigation/native';
-import { RootDrawerParamList } from '../screens/types';
 import { AdditionalDrawerContent } from '../components/menus';
-import { AlertContext, ThemeContext } from '../contexts';
-import { Alert, MyStatusBar } from '../components/util';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { ThemeContext } from '../contexts';
+import { Alert } from '../components/util';
+import { TopBar } from '../components/layout.tsx';
 
 
 
@@ -42,7 +40,7 @@ export function Navigation() {
                     <Drawer.Screen name="Signin" component={SigninScreen} options={{ drawerItemStyle: { display: 'flex' } }} />
                     <Drawer.Screen name="Signup" component={SignupScreen} options={{ drawerItemStyle: { display: 'none' } }} />
                     <Drawer.Screen name="ForgotPass" component={ForgotPassScreen} options={{ drawerItemStyle: { display: 'none' } }} />
-                    <Drawer.Screen name="Signout" component={SignoutScreen} options={{ drawerItemStyle: { display: 'none' } }} />
+                   
                 </Drawer.Group>
             </Drawer.Navigator>
             
@@ -52,9 +50,19 @@ export function Navigation() {
     );
 }
 
-const styles=StyleSheet.create({
-    item:{
-        color:'red'
-    }
-})
+export type RootDrawerParamList = {
+    Home: undefined;
+    Signin: undefined;
+    Signup: undefined;
+    ForgotPass: undefined;
+    Explore:undefined;
+    Category: undefined;
+    Restaurant:undefined;
+    Search:undefined;
+    Settings:undefined;
+    Chat:undefined;
+    Favourite:undefined;
+    Orders:undefined;
+  };
+
 

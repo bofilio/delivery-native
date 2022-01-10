@@ -1,12 +1,13 @@
 import React, { useContext, useLayoutEffect, useState } from 'react'
-import { View, Text, Image, ImageBackground, StyleSheet, Pressable, TextInput, KeyboardAvoidingView, ScrollView, Platform, SafeAreaView } from 'react-native';
+import { View, Text, Image, ImageBackground, StyleSheet, Pressable, TextInput, KeyboardAvoidingView, ScrollView, Platform } from 'react-native';
 import tailwind from 'tailwind-rn';
 import { Banner, Logo, MyStatusBar, Space, TransitionScreen } from '../../components/util';
 import { AlertContext, ThemeContext } from '../../contexts';
 import { AuthInput, Button } from '../../components/inputs';
-import { RootDrawerParamList } from '../types';
+import { RootDrawerParamList } from '../../navigation';
 import { useFireBaseAuth } from '../../hooks';
 import { DrawerScreenProps } from '@react-navigation/drawer';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 type Props = DrawerScreenProps<RootDrawerParamList, 'ForgotPass'>;
 
