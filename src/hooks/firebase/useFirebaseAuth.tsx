@@ -3,13 +3,14 @@ import { auth } from '../../constants'
 import {
     createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut,
     sendEmailVerification, sendPasswordResetEmail, deleteUser, reauthenticateWithCredential,
-    signInWithPopup, GoogleAuthProvider, AuthCredential
+    signInWithPopup, GoogleAuthProvider, AuthCredential,updateProfile
 } from "firebase/auth";
 
 export type actionType = 'signup' | 'signin' | 'signout' | 'send_email_verification' | 'send_reset_password_email' | 'delete_user' | 'reauthenticate' | 'google_signin'
-export type payLoadType = {
+export type AuthpayLoadType = {
     email: string,
-    password: string
+    password?: string,
+    name?:string|null
 }
 export type ApiresponseType={
     isloading:boolean,
@@ -19,21 +20,27 @@ export type ApiresponseType={
 
 export const useFireBaseAuth = () => {
     const [state, setstate] = useState({ isloading: false, data: '', errormsg: null } as ApiresponseType)
-    async function performAction(action: actionType, paylaod?: payLoadType|undefined) {
+    async function performAction(action: actionType, paylaod?: AuthpayLoadType) {
 
         setstate({ isloading: true, data:null, errormsg: null })
 
         switch (action) {
 
             case "signup":
+                if(!paylaod?.email || !paylaod?.password) break;
                 try {
                     const userCredential = paylaod? await createUserWithEmailAndPassword(auth, paylaod.email, paylaod.password):null;
+                    const user=userCredential?.user
+                    user &&  await updateProfile(user,{
+                        displayName:paylaod?.name
+                    })
                     userCredential && setstate({ isloading: false, data: userCredential.user.uid, errormsg: null })
                 } catch (err: any) {
                     setstate({ isloading: false, data: null, errormsg: err.message })
                 }; break;
 
             case "signin":
+                if(!paylaod?.email || !paylaod?.password) break;
                 try {
                     const userCredential = paylaod? await signInWithEmailAndPassword(auth, paylaod.email, paylaod.password):null;
                     userCredential && setstate({ isloading: false, data: userCredential.user.uid, errormsg: null })
@@ -50,8 +57,8 @@ export const useFireBaseAuth = () => {
                 }; break;
 
             case "send_email_verification":
+                
                 try {
-                    
                     auth.currentUser!=null && await sendEmailVerification(auth.currentUser)
                     setstate({ isloading: false, data: null, errormsg: null })
                 } catch (err: any) {
@@ -59,6 +66,7 @@ export const useFireBaseAuth = () => {
                 }; break;
 
             case "send_reset_password_email":
+                if(!paylaod?.email) break;
                 try {
                     paylaod && await sendPasswordResetEmail(auth, paylaod.email)
                     setstate({ isloading: false, data: null, errormsg: null })
