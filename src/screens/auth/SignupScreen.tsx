@@ -8,7 +8,8 @@ import { AuthInput, Button } from '../../components/inputs';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { RootDrawerParamList } from '../../navigation';
 import { DrawerScreenProps } from '@react-navigation/drawer';
-import { useFireBaseAuth } from '../../hooks';
+import { useAuth } from '../../hooks';
+import { firebaseAuth } from '../../api/firebase';
 
 
 type Props = DrawerScreenProps<RootDrawerParamList, 'Signup'>;
@@ -24,24 +25,24 @@ export const SignupScreen = ({ route, navigation }: Props) => {
     /** update input data with state */
     const [inputs, setInputs] = useState({ email: '', password: '', name: '' } as signUpProps)
     /**Authentication Hook */
-    const { state, performAction } = useFireBaseAuth();
-    const { isloading, data: uid, errormsg } = state
+    const { state,user, dispatch } = useAuth(firebaseAuth);
+    const { isloading, errormsg } = state
     async function signUp() {
-        await performAction('signup', { email: inputs.email, password: inputs.password, name: inputs.name })
+        await dispatch('signup', { email: inputs.email, password: inputs.password, name: inputs.name })
     }
     /**AlertProvider  */
     const {alert,setAlert} = useContext(AlertContext)
 
     /**Side Effects */
     useLayoutEffect(() => {
-        if(uid){
+        if(user){
             setAlert({status:undefined, message:null})
             navigation.navigate('Home')
         }
         if(errormsg){
             setAlert({status:'danger', message:state.errormsg})
         }
-    }, [uid,errormsg])
+    }, [user,errormsg])
 
     /**Ui */
     

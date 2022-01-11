@@ -1,69 +1,40 @@
 import React, { useState, useEffect, createContext, FC, Dispatch, SetStateAction } from 'react'
-import AsyncStorage from '@react-native-async-storage/async-storage'
 import { auth } from '../constants';
 import { onAuthStateChanged } from "firebase/auth";
 import { User } from 'firebase/auth';
-const STORAGE_KEY = '@user'
+import { MyCuurentUser, MyUser } from '../api';
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
-type UserType = User | null
-export const AuthenticationContext = createContext<{ user: UserType }>(
+const USER_STORAGE_KEY = '@user'
+
+
+export const AuthenticationContext = createContext<{ user: MyCuurentUser, setUser: React.Dispatch<React.SetStateAction<MyCuurentUser>> }>(
     {
         user: null,
+        setUser: () => null
     }
 );
 export const AuthenticationProvider: FC<{}> = ({ children }) => {
-    const [user, setUser] = useState(null as UserType);
+    const [user, setUser] = useState(null as MyCuurentUser);
     useEffect(() => {
-        const unsbscribe = onAuthStateChanged(auth, async user => {
-            if (user) {
-                setUser(user)
-                await saveUserToLocalStorage(user)
-            } else {
-                setUser(null)
-                await removeUserFromLocalStorage()
-            }
-        })
 
         if (!user) {
-            getUserFromLocalStorage().then(user => {
-                user && setUser(user)
-            })
-        } 
+            AsyncStorage.getItem(USER_STORAGE_KEY).then(user_str => {
+                if (user_str) {
+                    const user = JSON.parse(user_str) as MyUser
+                    setUser(user)
+                }
 
-        return unsbscribe;
+            })
+        }
     }, [])
+
+
     return (
-        <AuthenticationContext.Provider value={{ user }} >
+        <AuthenticationContext.Provider value={{ user, setUser }} >
             {children}
         </AuthenticationContext.Provider>
     )
 }
 
 
-
-async function saveUserToLocalStorage(user: User) {
-    try {
-        await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(user.toJSON()))
-    } catch (e) {
-        alert('Storage full !')
-    }
-}
-async function removeUserFromLocalStorage() {
-    try {
-        await AsyncStorage.removeItem(STORAGE_KEY)
-
-    } catch (e) {
-        alert('error removing user from local storage !')
-    }
-}
-async function getUserFromLocalStorage() {
-    try {
-        const raw_user = await AsyncStorage.getItem(STORAGE_KEY)
-        if (!raw_user) return null
-
-        const user = JSON.parse(raw_user) as User
-        return user
-    } catch (e) {
-        return null
-    }
-}

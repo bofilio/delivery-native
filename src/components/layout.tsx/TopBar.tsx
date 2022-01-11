@@ -2,9 +2,10 @@ import { isLoading } from 'expo-font'
 import React, { useContext, useEffect } from 'react'
 import { Pressable, View, Text } from 'react-native'
 import tailwind from 'tailwind-rn'
+import { firebaseAuth } from '../../api/firebase'
 import { AlertContext, AuthenticationContext, ThemeContext } from '../../contexts'
 import { ModalProvider, ToggleModal } from '../../contexts/ModalContext'
-import { useFireBaseAuth } from '../../hooks'
+import { useAuth } from '../../hooks'
 import { MenuIcon, UserIcon } from '../icons'
 import { SearchInput } from '../inputs'
 import { MyModal } from '../modals'
@@ -12,13 +13,12 @@ import { TransitionScreen } from '../util'
 
 
 export const TopBar = ({ navigation }: any) => {
-    const { state, performAction } = useFireBaseAuth();
+    const { state,user, dispatch } = useAuth(firebaseAuth);
 
     async function logout() {
-        await performAction('signout');
+        await dispatch('signout');
     }
     const { setAlert } = useContext(AlertContext)
-    const { user } = useContext(AuthenticationContext)
     const { theme, setTheme } = useContext(ThemeContext)
     const { mode, colors, typography } = theme;
 

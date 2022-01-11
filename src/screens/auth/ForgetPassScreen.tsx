@@ -5,9 +5,10 @@ import { Banner, Logo, MyStatusBar, Space, TransitionScreen } from '../../compon
 import { AlertContext, ThemeContext } from '../../contexts';
 import { AuthInput, Button } from '../../components/inputs';
 import { RootDrawerParamList } from '../../navigation';
-import { useFireBaseAuth } from '../../hooks';
+import { useAuth } from '../../hooks';
 import { DrawerScreenProps } from '@react-navigation/drawer';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { firebaseAuth } from '../../api/firebase';
 
 type Props = DrawerScreenProps<RootDrawerParamList, 'ForgotPass'>;
 
@@ -22,10 +23,10 @@ export const ForgotPassScreen = ({ route, navigation }: Props) => {
     const [email, setEmail] = useState('')
 
     /**Authentication Hook */
-    const { state, performAction } = useFireBaseAuth();
-    const { isloading, data: uid, errormsg } = state;
+    const { state,user, dispatch } = useAuth(firebaseAuth);
+    const { isloading, errormsg } = state;
     async function SendResetPasswordEmail() {
-        await performAction('send_reset_password_email', { email: email })
+        await dispatch('send_reset_password_email', { email: email })
     }
 
     /**Side Effects */
