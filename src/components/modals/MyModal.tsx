@@ -7,8 +7,7 @@ import {  ModalContext } from '../../contexts'
 
 export const MyModal:React.FC<{}> =  ({children}) => {
     const { isOpen, setOpen } = useContext(ModalContext)
-   
-    
+   console.log(isOpen)
     return (
 
         <Modal

@@ -12,7 +12,8 @@ export type ThemeType = {
         danger:any,
         text:any,
         bg:any,
-        border:any
+        border:any,
+        ripple:any,
     },
     typography: {
         h1:{},
@@ -21,7 +22,10 @@ export type ThemeType = {
         h4:{},
         h5:{},
         h6:{},
+        h7:{},
+        h8:{},
         inputLabel:{},
+        xs:{}
     }
 }
 
@@ -72,7 +76,10 @@ export const theme1: ThemeType = {
         border:{
             dark: '#1d1d1d',
             light: '#e2e2e2',
-        }
+        },
+        ripple: '#503e9d30',
+
+        
 
     },
     typography: StyleSheet.create({
@@ -97,13 +104,25 @@ export const theme1: ThemeType = {
             fontWeight: '700',
         },
         h6: {
+            fontSize: 16,
+            fontWeight: '700',
+        },
+        h7: {
             fontSize: 14,
+            fontWeight: '700',
+        },
+        h8: {
+            fontSize: 12,
             fontWeight: '700',
         },
         inputLabel:{
             fontSize:12,
             fontWeight:'700',
             textTransform:'uppercase',
+        },
+        xs:{
+            fontSize:11,
+            fontWeight:'400',
         }
     }),
 

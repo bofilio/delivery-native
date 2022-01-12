@@ -5,7 +5,6 @@ import {
     sendEmailVerification, sendPasswordResetEmail, deleteUser, reauthenticateWithCredential,
     signInWithPopup, GoogleAuthProvider, AuthCredential, updateProfile, User
 } from "firebase/auth";
-import { userStorage, UserStorage, UserStorageManager } from "../../local storage";
 
 export type signupProps = {
     name?: string,
@@ -99,6 +98,4 @@ class FirebaseUserApi implements IUserAPi {
 
 }
 
- const firebaseAuth = FirebaseUserApi.prototype;
- firebaseAuth.userStorage=userStorage
- export {firebaseAuth};
+ export const firebaseAuth = FirebaseUserApi.prototype;
