@@ -1,15 +1,14 @@
-import { isLoading } from 'expo-font'
 import React, { useContext, useEffect } from 'react'
 import { Pressable, View, Text } from 'react-native'
 import tailwind from 'tailwind-rn'
 import { firebaseAuth } from '../../api/firebase'
-import { AlertContext, AuthenticationContext, ThemeContext } from '../../contexts'
+import { AlertContext, ThemeContext } from '../../contexts'
 import { ModalProvider, OpenModal, CloseModal } from '../../contexts/ModalContext'
 import { useAuth } from '../../hooks'
 import { MenuIcon, SigninIcon, SignoutIcon, SignupIcon, UserIcon } from '../icons'
 import { SearchInput } from '../inputs'
 import { MyModal } from '../modals'
-import { MyPressable, Space, TransitionScreen } from '../util'
+import { Space, TransitionScreen } from '../util'
 import { Circle } from '../util/Circle'
 
 
@@ -51,7 +50,7 @@ export const TopBar = ({ navigation }: any) => {
                 </OpenModal>
                 <MyModal>
 
-                    <View style={[tailwind('absolute right-1 top-12 px-4 bg-white py-4  w-44  rounded-lg '), { backgroundColor: colors.bg[mode] }]} >
+                    <View style={[tailwind('absolute right-1 top-12  bg-white py-4  w-44  rounded-lg '), { backgroundColor: colors.bg[mode] }]} >
                         {
                             user != null &&
                             <View>

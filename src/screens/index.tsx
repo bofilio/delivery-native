@@ -1,15 +1,14 @@
 import React, { useContext } from 'react'
-import { Image, Pressable, ScrollView, Text, View } from 'react-native'
+import {  ScrollView, Text, View } from 'react-native'
 import tailwind from 'tailwind-rn'
 import { DrawerScreenProps } from '@react-navigation/drawer';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { ThemeContext } from '../contexts';
 import { TopBar } from '../components/layout.tsx';
 import { RootDrawerParamList } from '../navigation';
-import { ArrowRightIcon, CashIcon, FoodIcon, MotoCycleIcon, MyLocationIcon, StarIcon, StoreIcon } from '../components/icons';
-import { Attribute, SectionHeader, Space } from '../components/util';
+import {  FoodIcon,StoreIcon } from '../components/icons';
+import { SectionHeader, Space } from '../components/util';
 import { Category } from '../components/menus/Category';
-import { Badge } from '../components/util/Badge';
 import { Food, Restaurant } from '../components/content';
 
 

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Modal, View, Text, Pressable } from 'react-native'
+import { Modal, Pressable } from 'react-native'
 import tailwind from 'tailwind-rn'
 import {  ModalContext } from '../../contexts'
 
@@ -7,9 +7,7 @@ import {  ModalContext } from '../../contexts'
 
 export const MyModal:React.FC<{}> =  ({children}) => {
     const { isOpen, setOpen } = useContext(ModalContext)
-   console.log(isOpen)
     return (
-
         <Modal
             style={{ backgroundColor: '#000' }}
             animationType="fade"

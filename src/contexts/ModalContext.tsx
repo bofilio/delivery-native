@@ -32,8 +32,8 @@ export const OpenModal:React.FC<{}> =({children})=>{
 export const CloseModal:React.FC<{onPress?: ((event: GestureResponderEvent) => void) | null | undefined}> =({onPress,children})=>{
     const { isOpen, setOpen } = useContext(ModalContext)
     return(
-        <MyPressable onPress={onPress} onPressOut={()=>{setOpen(false)}}> 
+        <Pressable onPress={onPress} onPressOut={()=>{setOpen(false)}}> 
             {children}
-        </MyPressable>
+        </Pressable>
     )
 }
