@@ -25,7 +25,7 @@ export const HomeScreen = ({ route, navigation }: Props) => {
                 <View style={tailwind('py-4 mb-16')}>
                     <SectionHeader title="Explore Categories" />
                     <Space size={8} />
-                    <ScrollView horizontal>
+                    <ScrollView horizontal showsHorizontalScrollIndicator={false}>
                         <View style={tailwind('flex flex-row px-2')}>
 
                             <Category icon={<StoreIcon size={28} color={colors.text.dark} />} name='Pick up' color={colors.primary[mode]} />
@@ -44,7 +44,7 @@ export const HomeScreen = ({ route, navigation }: Props) => {
 
                     <SectionHeader title="Featured restaurants" />
                     <Space size={8} />
-                    <ScrollView horizontal>
+                    <ScrollView showsHorizontalScrollIndicator={false} horizontal>
                         <View style={tailwind('flex flex-row px-2')}>
                             <Restaurant />
                             <Restaurant />
