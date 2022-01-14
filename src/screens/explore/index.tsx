@@ -17,7 +17,7 @@ export const ExploreScreen = ({ route, navigation }: Props) => {
         <SafeAreaView>
             <TopBar navigation={navigation} />
             <View style={tailwind("flex h-full bg-red-400 justify-center items-center")}>
-                <Text style={typography.h3}>Explore Screen</Text>
+                <Text style={typography.h3}>Explore Screen edit</Text>
             </View>
         </SafeAreaView>
 
