@@ -24,7 +24,7 @@ export const Tab: React.FC<TabType> = (props) => {
             }
             onPress={() => setActiveId(id)} >
             <Text style={[tailwind("text-center"), { color: id === active_id ? colors.text.dark : colors.text[mode] }]}>
-                {title} {colors.bgGrey['light']}
+                {title}
             </Text>
         </Pressable>
     )
