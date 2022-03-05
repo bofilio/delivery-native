@@ -105,7 +105,7 @@ export const ChatScreen = ({ route, navigation }: Props) => {
                     </ModalProvider>
                 </View>
 
-                <View style={tailwind('flex-1 px-10')}>
+                <View style={tailwind('flex-1 px-5')}>
                 {
                     chatEntry.map((entry, index) =>(
                         <React.Fragment key={index} >
@@ -119,7 +119,7 @@ export const ChatScreen = ({ route, navigation }: Props) => {
                                 timeSent={entry.timeSent}
                                 tags={entry.tags}
                             />
-                            {index < chatEntry.length - 1 && <Space direction='v' size={6} />}
+                            {index < chatEntry.length - 1 && <Space direction='h' size={12} />}
                         </React.Fragment>
                     ))
                 }

@@ -1,6 +1,7 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import { View, Text, Image, Pressable } from 'react-native'
 import tailwind from 'tailwind-rn'
+import { ThemeContext } from '../../contexts';
 
 type TagType = {
     title: string,
@@ -30,6 +31,9 @@ export const ChatEntry: React.FC<ChatEntryType> = (props) => {
         isSeen,
         timeSent,
         tags } = props;
+    
+    const { theme, setTheme } = useContext(ThemeContext)
+    const { mode, colors, typography } = theme;
 
     return (
         <Pressable
@@ -40,8 +44,14 @@ export const ChatEntry: React.FC<ChatEntryType> = (props) => {
                 source={{uri: imageUrl}}
                 style={tailwind('w-16 h-16 rounded-full')}
             />
-            <View style={tailwind('flex justify-start items-start ml-4')}>
-                <Text style={tailwind('')}>{from}, {job}</Text>
+            <View style={tailwind('flex flex-1 ml-4')}>
+                <View style={tailwind('flex flex-row justify-between items-center')}>
+                    <Text style={[typography.h8, {color: colors.text.gray}]}>{from}, {job}</Text>
+                    <Text style={[typography.h8, {color: colors.text.gray}]}>{timeSent}</Text>
+                </View>
+                <Text style={[typography.h6, {color: mode=='dark'? colors.text.dark: colors.text.light}]}>{title}</Text>
+                <Text style={[typography.h8, {color: colors.text.gray}]}>{lastMessage}</Text>
+
             </View>
         </Pressable>
     )
