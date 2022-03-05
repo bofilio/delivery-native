@@ -11,6 +11,7 @@ export type categoryType = {
     id?: number;
     name: string;
     color: string;
+    icon: JSX.Element;
 }
 export type locationType={
     long:number;
@@ -21,7 +22,6 @@ export type restaurantType = {
     name: string;
     imageUrl: string;
     tags?:string[];
-    categories:categoryType[];
-    mainCategory:categoryType;
-    location:locationType
+    mainCategory:string;
+    location?:locationType
 }
