@@ -2,22 +2,12 @@ import React, { useContext } from 'react'
 import { Pressable, View ,Image,Text} from 'react-native'
 import tailwind from 'tailwind-rn'
 import { ThemeContext } from '../../contexts'
+import { FoodType } from '../../types'
 import { FoodIcon, MotoCycleIcon, StarIcon } from '../icons'
 import { Attribute } from '../util'
 import { Badge } from '../util'
 
-
-
-type FoodType = {
-    name: string,
-    imageUrl: string,
-    totalRating: number,
-    ratingAvg: number,
-    category: string,
-    timeDelivery: string,
-}
-
-export const Food = ({ name, imageUrl, totalRating, ratingAvg, category, timeDelivery }: FoodType) => {
+export const Food = ({id, name, imageUrl, totalRating, ratingAvg, category, timeDelivery }: FoodType) => {
     const { theme, setTheme } = useContext(ThemeContext)
     const { mode, colors, typography } = theme;
     return (

@@ -9,7 +9,7 @@ import { RootDrawerParamList } from '../navigation';
 import { FoodIcon, StoreIcon } from '../components/icons';
 import { SectionHeader, Space } from '../components/util';
 import { Category } from '../components/menus/Category';
-import { CategoriesList, Food, Restaurant } from '../components/content';
+import { CategoriesList, Food, Restaurant, RestaurantList } from '../components/content';
 import { categories } from '../data';
 
 
@@ -30,14 +30,7 @@ export const HomeScreen = ({ route, navigation }: Props) => {
                     <Space size={24} />
                     <SectionHeader title="Featured restaurants" />
                     <Space size={8} />
-                    <ScrollView showsHorizontalScrollIndicator={false} horizontal>
-                        <View style={tailwind('flex flex-row px-2')}>
-                            <Restaurant />
-                            <Restaurant />
-                            <Restaurant />
-                        </View>
-                    </ScrollView>
-
+                    <RestaurantList/>
                     <Space size={24} />
                     <SectionHeader title="Featured Recipies" />
                     <Space size={8} />
