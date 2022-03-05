@@ -10,7 +10,6 @@ const featuredDishes:FoodType[]=[
 const favoritResturants = [
     
 ];
-
 export const categories: categoryType[] = [
     {
         id: 1,
