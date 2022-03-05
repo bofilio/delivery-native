@@ -56,11 +56,32 @@ export const HomeScreen = ({ route, navigation }: Props) => {
                     <SectionHeader title="Featured Recipies" />
                     <Space size={8} />
                     <View>
-                        <Food />
+                        <Food 
+                            name="Spicy Na Thai Town" 
+                            imageUrl="https://i.ytimg.com/vi/6zNQ9TX5qiU/maxresdefault.jpg"
+                            totalRating={1125}
+                            ratingAvg={4.8}
+                            category="dish"
+                            timeDelivery="45 - 50 min"
+                        />
                         <Space size={8} />
-                        <Food />
+                        <Food 
+                            name="Chicken Burger" 
+                            imageUrl="https://3.bp.blogspot.com/-0tXqH7hJkMA/Xzm0tUlchgI/AAAAAAABUEE/_IHEjknPQVAqVhJYkjyLH7LxG1obagESwCLcBGAsYHQ/s660/burger-de-poulet-frit-fried-chicken-burger.jpg"
+                            totalRating={854}
+                            ratingAvg={4.5}
+                            category="burger"
+                            timeDelivery="30 - 40 min"
+                        />
                         <Space size={8} />
-                        <Food />
+                        <Food 
+                            name="Double Viande" 
+                            imageUrl="https://media-mcetv.ouest-france.fr/wp-content/uploads/2018/10/Un-restaurant-sert-un-burger-XXL-avec-27kg-de-viande-small.jpg"
+                            totalRating={1263}
+                            ratingAvg={4.7}
+                            category="burger"
+                            timeDelivery="35 - 45 min"
+                        />
                     </View>
                 </View>
 

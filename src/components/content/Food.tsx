@@ -6,30 +6,41 @@ import { FoodIcon, MotoCycleIcon, StarIcon } from '../icons'
 import { Attribute } from '../util'
 import { Badge } from '../util'
 
-export const Food = () => {
+
+
+type FoodType = {
+    name: string,
+    imageUrl: string,
+    totalRating: number,
+    ratingAvg: number,
+    category: string,
+    timeDelivery: string,
+}
+
+export const Food = ({ name, imageUrl, totalRating, ratingAvg, category, timeDelivery }: FoodType) => {
     const { theme, setTheme } = useContext(ThemeContext)
     const { mode, colors, typography } = theme;
     return (
         <Pressable style={tailwind('px-4 ')}  >
-            <Image source={require('../../assets/media/food.png')} resizeMode='contain' style={tailwind('flex w-full rounded-lg h-48')} />
+            <Image source={{uri: imageUrl}} resizeMode='contain' style={tailwind('flex w-full rounded-lg h-48')} />
             <View style={tailwind('flex flex-row justify-between items-center')}>
                 <Text style={[typography.h6, { color: colors.text[mode] }]}>
-                    Spicy Na Thai Town
+                    {name}
                 </Text>
                 <Badge badgeColor='primary' text='Free delivery' />
             </View>
             <View style={tailwind('flex flex-row flex-wrap  ')}>
                 <Attribute
                     icon={<StarIcon size={20} color={colors.warning.light} />}
-                    value={'4.8(1,457)'}
+                    value={ratingAvg+'('+totalRating+')'}
                 />
                 <Attribute
                     icon={<FoodIcon size={20} color={colors.text.gray} />}
-                    value={'Burger'}
+                    value={category}
                 />
                 <Attribute
                     icon={<MotoCycleIcon size={20} color={colors.text.gray} />}
-                    value={'25-30min'}
+                    value={timeDelivery}
                 />
 
             </View>
