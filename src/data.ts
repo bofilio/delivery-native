@@ -1,17 +1,27 @@
+<<<<<<< HEAD
+=======
+import { categoryType, FoodType } from "./types";
+>>>>>>> 1669624cb77d58f87858190c19bad439533b5fde
 
-
-const favoritDishes = [
+const favoritDishes:FoodType[] = [
     
 ];
+const featuredDishes:FoodType[]=[
+
+]
 
 const favoritResturants = [
     
 ];
+<<<<<<< HEAD
 type categoryType = {
     id: number;
     name: string;
     color: string;
 }
+=======
+
+>>>>>>> 1669624cb77d58f87858190c19bad439533b5fde
 export const categories: categoryType[] = [
     {
         id: 1,
