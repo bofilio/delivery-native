@@ -140,5 +140,11 @@ export const DownArrowIcon = ({focused=false, color, size=16}:IconProps) => {
         <AntDesign color={color} size={size} name='down'  />
     )
 }
+export const DeliveryClockIcon = ({focused=false, color, size=16}:IconProps) => {
+    return (
+        <MaterialCommunityIcons color={color} size={size} name='clock-fast'  />
+    )
+}
+
 
 

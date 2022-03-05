@@ -23,15 +23,15 @@ export const HomeScreen = ({ route, navigation }: Props) => {
             <TopBar navigation={navigation} />
             <ScrollView style={[tailwind("flex h-full"), { backgroundColor: colors.bg[mode] }]}>
                 <View style={tailwind('py-4 mb-16')}>
-                    <SectionHeader title="Explore Categories" />
+                    <SectionHeader title="Explore Categories" navigateTo='Category' />
                     <Space size={8} />
                     <CategoriesList />
                     <Space size={24} />
-                    <SectionHeader title="Featured restaurants" />
+                    <SectionHeader title="Featured restaurants" navigateTo='Restaurant'/>
                     <Space size={8} />
                     <FeaturedRestaurantList/>
                     <Space size={24} />
-                    <SectionHeader title="Featured Recipies" />
+                    <SectionHeader title="Featured Recipies" navigateTo='Recipe'/>
                     <Space size={8} />
                    <FeaturedDishes/>
                 </View>

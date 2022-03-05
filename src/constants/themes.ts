@@ -45,7 +45,7 @@ export const theme1 = {
             light: '#f7f7f7',
         } as const,
         bgGrey:{
-            light:'#e5e7eb!',
+            light:'#e5e7eb',
             dark:'#475569'
         },
         border:{

@@ -14,6 +14,7 @@ export const Category:FC<categoryType> = (props) => {
         <Pressable 
             style={[tailwind(`w-24 p-4 items-center rounded-lg ${(mode === 'dark') ? 'bg-gray-700' : 'bg-gray-200'} `)]}
             onPress={() => { }}
+            android_ripple={{ color: colors.ripple, borderless: false, }}
         >
             <View style={[tailwind('w-12 h-12 items-center justify-center rounded-lg'),{backgroundColor:color}]}>
                 {icon}

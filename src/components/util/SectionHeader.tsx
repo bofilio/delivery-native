@@ -4,8 +4,13 @@ import tailwind from 'tailwind-rn'
 import { ThemeContext } from '../../contexts'
 import { ArrowRightIcon } from '../icons'
 
-
-export const SectionHeader: FC<{ title: string, navigateTo?: string, navigation?:any }> = ({ title, navigateTo,navigation }) => {
+type SectionHeaderType={
+    title:string,
+    navigateTo?:string,
+    navigation?:any,
+}
+export const SectionHeader: FC<SectionHeaderType> = (props) => {
+    const { title, navigateTo, navigation }=props
     const { theme, setTheme } = useContext(ThemeContext)
     const { mode, colors, typography } = theme;
     return (
@@ -13,10 +18,14 @@ export const SectionHeader: FC<{ title: string, navigateTo?: string, navigation?
             <Text style={[typography.h5, { color: colors.text[mode] }]}>
                 {title}
             </Text>
-            <Pressable style={[tailwind("flex flex-row items-center"),]} onPress={() => { }}>
-                <Text style={[typography.h6, { color: colors.primary[mode] }]}>see all</Text>
-                <ArrowRightIcon color={colors.primary[mode]} />
-            </Pressable>
+            {
+                navigateTo &&
+                <Pressable style={[tailwind("flex flex-row items-center"),]} onPress={() => { }}>
+                    <Text style={[typography.h6, { color: colors.primary[mode] }]}>see all</Text>
+                    <ArrowRightIcon color={colors.primary[mode]} />
+                </Pressable>
+            }
+
         </View>
     )
 }
