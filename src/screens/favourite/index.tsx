@@ -7,6 +7,7 @@ import { TabulationProvider, ThemeContext } from '../../contexts';
 import { TopBar } from '../../components/layout.tsx';
 import { RootDrawerParamList } from '../../navigation';
 import { Tab, TabContent } from '../../components/menus';
+import { Space } from '../../components/util';
 
 
 type Props = DrawerScreenProps<RootDrawerParamList, 'Favourite'>;
@@ -20,8 +21,9 @@ export const FavouriteScreen = ({ route, navigation }: Props) => {
             <ScrollView style={[tailwind("flex h-full"), { backgroundColor: colors.bg[mode] }]}>
                 <View style={tailwind('py-8 mb-16')}>
                     <TabulationProvider>
-                        <View style={tailwind("flex flex-row items-center space-x-4")}>
+                        <View style={tailwind("flex flex-row items-center")}>
                             <Tab id={1} title={'Dishes'} />
+                            <Space direction='v' size={4}/>
                             <Tab id={2} title={'Restaurants'} />
                         </View>
                         <View>

@@ -9,7 +9,7 @@ export const TabulationContext = createContext<{ active_id: number, setActiveId:
 
 export const TabulationProvider: React.FC<{}> = ({ children }) => {
     const [active_id, setActiveId] = useState(1)
-
+    
     return (
         <TabulationContext.Provider value={{ active_id, setActiveId }}>
             {children}
