@@ -2,10 +2,12 @@ import React, { FC, useContext } from 'react'
 import { Pressable, View , Text} from 'react-native'
 import tailwind from 'tailwind-rn'
 import { ThemeContext } from '../../contexts'
+import { categoryType } from '../../types'
 import { Space } from '../util'
 
 
-export const Category:FC<{icon:JSX.Element,name:string,color:string }> = ({icon,name,color}) => {
+export const Category:FC<categoryType> = (props) => {
+    const {icon,name,color}=props
     const { theme, setTheme } = useContext(ThemeContext)
     const { mode, colors, typography } = theme;
     return (

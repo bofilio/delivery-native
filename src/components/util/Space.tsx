@@ -4,7 +4,8 @@ type SpaceProps = {
     direction?: 'h' | 'v',
     size: number
 }
-export const Space = ({ direction = "h", size }: SpaceProps) => {
+export const Space: React.FC<SpaceProps> = (props) => {
+    const { direction = "h", size } = props
 
     if (direction === 'h')
         return (
