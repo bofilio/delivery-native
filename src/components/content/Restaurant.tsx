@@ -11,7 +11,6 @@ export const Restaurant:React.FC<restaurantType> = (props) => {
     const {id,imageUrl,name,tags,mainCategory,location}=props
     const { theme, setTheme } = useContext(ThemeContext)
     const { mode, colors, typography } = theme;
-    console.log(imageUrl);
     
     return (
         <View style={tailwind('flex flex-row mr-3 ')} >
