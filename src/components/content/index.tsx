@@ -5,3 +5,5 @@ export * from './FeaturedRestaurantList'
 export * from './FeaturedDishes'
 export * from "./NearbyRestaurants"
 export * from "./PopularDishes"
+export * from "./FavoriteDishesList"
+export * from './FavoriteRestaurantsList'
