@@ -14,10 +14,10 @@ export const CategoriesList = () => {
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
             <View style={tailwind('flex flex-row px-2')}>
                 {categories.map((cat, index) => (
-                    <>
-                        <Category key={index} icon={<StoreIcon size={28} color={colors.text.dark} />} name={cat.name} color={cat.color} />
+                    <React.Fragment key={index} >
+                        <Category  icon={<StoreIcon size={28} color={colors.text.dark} />} name={cat.name} color={cat.color} />
                         {index < categories.length - 1 && <Space direction='v' size={12} />}
-                    </>
+                    </React.Fragment  >
                 ))}
             </View>
         </ScrollView>
