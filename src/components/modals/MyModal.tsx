@@ -20,7 +20,6 @@ export const MyModal:React.FC<{}> =  ({children}) => {
             {children}
         </Modal >
 
-
     )
 }
 

@@ -1,6 +1,12 @@
 
 import { StyleSheet } from "react-native"
 
+type ColorType={
+    dark:string,
+    light:string,
+    transparent:string,
+}
+
 export type ThemeType = {
     mode: 'dark' | 'light',
     colors: {
@@ -37,7 +43,6 @@ export const theme1: ThemeType = {
             dark: '#503e9d',
             light: '#503e9d',
             transparent: '#503e9d10',
-            
         },
         secondary: {
             dark: '#fb6d3a',
@@ -77,9 +82,7 @@ export const theme1: ThemeType = {
             dark: '#1d1d1d',
             light: '#e2e2e2',
         },
-        ripple: '#503e9d30',
-
-        
+        ripple: '#503e9d30',   
 
     },
     typography: StyleSheet.create({
