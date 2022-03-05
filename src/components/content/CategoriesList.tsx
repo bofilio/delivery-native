@@ -17,7 +17,7 @@ export const CategoriesList = () => {
                     <React.Fragment key={index} >
                         <Category  icon={<StoreIcon size={28} color={colors.text.dark} />} name={cat.name} color={cat.color} />
                         {index < categories.length - 1 && <Space direction='v' size={12} />}
-                    </React.Fragment  >
+                    </React.Fragment>
                 ))}
             </View>
         </ScrollView>

@@ -1,4 +1,4 @@
-import { AntDesign, MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons'
+import { AntDesign, MaterialCommunityIcons, Feather, MaterialIcons } from '@expo/vector-icons'
 import React from 'react'
 type IconProps={
     focused?:boolean,
@@ -126,6 +126,18 @@ export const MyLocationIcon = ({focused=false, color, size=16}:IconProps) => {
 export const MotoCycleIcon = ({focused=false, color, size=16}:IconProps) => {
     return (
         <MaterialIcons color={color} size={size} name="motorcycle"  />
+    )
+}
+
+export const FilterIcon = ({focused=false, color, size=16}:IconProps) => {
+    return (
+        <Feather name="filter" color={color} size={size} />
+    )
+}
+
+export const DownArrowIcon = ({focused=false, color, size=16}:IconProps) => {
+    return (
+        <AntDesign color={color} size={size} name='down'  />
     )
 }
 
