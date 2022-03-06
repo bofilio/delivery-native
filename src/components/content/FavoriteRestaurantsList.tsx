@@ -11,7 +11,7 @@ export const FavoriteRestaurantList = () => {
         <ScrollView showsHorizontalScrollIndicator={false}>
             <View style={tailwind('flex  px-2')}>
                 {featuredRestaurant.map((rest, index) => (
-                    < React.Fragment>
+                    < React.Fragment key={index}>
                      <Restaurant key={index} name={rest.name} imageUrl={rest.imageUrl} mainCategory={rest.mainCategory} />
                     {index<featuredRestaurant.length-1 && <Space size={12}/>}
                     </React.Fragment>

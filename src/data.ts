@@ -1,4 +1,4 @@
-import { categoryType, FoodType, restaurantType } from "./types";
+import { categoryType, FoodType, restaurantType, UpcomingOrderType } from "./types";
 
 export const favoritDishes: FoodType[] = [
 
@@ -96,5 +96,20 @@ export const favoritResturants: restaurantType[] = [
         mainCategory: "Chicken"
     }
 ];
+
+export const upComingOrders:UpcomingOrderType[]=[
+    {
+        restaurantName:"Burger King",
+        code :'#1452G5',
+        estimatedArrival:5,
+        deliveryTime:29
+    },
+    {
+        restaurantName:"Tick Tok",
+        code :'#25689H',
+        estimatedArrival:42,
+        deliveryTime:60,
+    }
+]
 
 

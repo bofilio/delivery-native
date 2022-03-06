@@ -25,3 +25,9 @@ export type restaurantType = {
     mainCategory:string;
     location?:locationType
 }
+export type UpcomingOrderType={
+    restaurantName:string,
+    code:string,
+    estimatedArrival:number,
+    deliveryTime:number
+}
