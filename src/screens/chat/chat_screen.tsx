@@ -1,12 +1,11 @@
 import React, { useContext, useState } from 'react'
-import { Text, View, ScrollView, Modal, Pressable } from 'react-native'
+import { Text, View, ScrollView } from 'react-native'
 import tailwind from 'tailwind-rn'
 import { DrawerScreenProps } from '@react-navigation/drawer';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { ThemeContext } from '../../contexts';
 import { TopBar } from '../../components/layout.tsx';
 import { RootDrawerParamList } from '../../navigation';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 import { FilterIcon, DownArrowIcon } from '../../components/icons';
 import { ModalProvider, OpenModal, CloseModal } from '../../contexts/ModalContext'
 import { MyModal } from '../../components/modals';
