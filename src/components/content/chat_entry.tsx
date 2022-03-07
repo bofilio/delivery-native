@@ -1,9 +1,9 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import { View, Text, Image, Pressable } from 'react-native'
 import tailwind from 'tailwind-rn'
 import { ThemeContext } from '../../contexts';
 import { trimString } from '../../helpers';
-import Animated, { withTiming, useSharedValue, useAnimatedStyle, withRepeat, Easing } from 'react-native-reanimated';
+import { Ping } from '../util';
 
 type TagType = {
     title: string,
@@ -37,37 +37,23 @@ export const ChatEntry: React.FC<ChatEntryType> = (props) => {
     const { theme, setTheme } = useContext(ThemeContext)
     const { mode, colors, typography } = theme;
 
-    const progress = useSharedValue(1);
-    const scale = useSharedValue(1);
-
-    const styleAnimated = useAnimatedStyle(() => {
-        return {
-            opacity: progress.value,
-            transform: [{scale: scale.value}]
-        };
-    }, []);
-
-    useEffect(()=>{
-        progress.value = withRepeat(withTiming(0.2, {duration:1000, easing: Easing.out(Easing.quad),}),-1);
-        scale.value = withRepeat(withTiming(2, {duration:1000}),-1);
-    }, [])
-
     return (
         <Pressable
             style={tailwind('flex flex-row justify-start items-start')}
             android_ripple={{ color: colors.ripple, borderless: false, radius: 1 }}
             onPress={() => console.log('go to messages')}
         >
+            
             {!isSeen &&
-                <Animated.View
-                    style={[tailwind('absolute right-1 top-6'), styleAnimated, { backgroundColor: colors.secondary.dark, width: 6, height: 6, borderRadius: 3 }]}
-                ></Animated.View>
+                <Ping
+                    style={tailwind('absolute right-1 top-3')}
+                    pingWidth={6}
+                    pingHeight={6}
+                    pingRadius={3}
+                    pingColor={colors.secondary.dark}
+                 />
             }
-            {!isSeen &&
-                <View
-                    style={[tailwind('absolute right-1 top-6'), { zIndex: 1, backgroundColor: colors.secondary.dark, width: 6, height: 6, borderRadius: 3 }]}
-                ></View>
-            }
+
             <Image
                 source={{ uri: imageUrl }}
                 style={tailwind('w-16 h-16 rounded-full')}
