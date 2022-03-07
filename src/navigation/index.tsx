@@ -35,7 +35,7 @@ export function Navigation() {
                 <Drawer.Screen name='Explore' component={ExploreScreen} />
                 <Drawer.Screen name="Favourite" component={FavouriteScreen} />
                 <Drawer.Screen name='Orders' component={OrdersScreen} />
-                <Drawer.Screen name='Chat' component={ChatStack} />
+                <Drawer.Screen name='ChatStack' component={ChatStack} />
                 <Drawer.Screen name='Settings' component={SettingsScreen} />
                 <Drawer.Group >
                     <Drawer.Screen name="Signin" component={SigninScreen} options={{ drawerItemStyle: { display: 'flex' } }} />
@@ -61,7 +61,7 @@ export type RootDrawerParamList = {
     Restaurant:undefined;
     Search:undefined;
     Settings:undefined;
-    Chat:undefined;
+    ChatStack:undefined;
     Favourite:undefined;
     Orders:undefined;
   };

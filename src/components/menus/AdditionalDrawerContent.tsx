@@ -116,7 +116,7 @@ function getMenuItems() {
         {
             key: 4,
             label: 'Chat',
-            screen: 'Chat',
+            screen: 'ChatStack',
             icon: ChatIcon
         },
         {

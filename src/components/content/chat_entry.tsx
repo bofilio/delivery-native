@@ -44,7 +44,7 @@ export const ChatEntry: React.FC<ChatEntryType> = (props) => {
         <Pressable
             style={tailwind('flex flex-row justify-start items-start')}
             android_ripple={{ color: colors.ripple, borderless: false, radius: 1 }}
-            onPress={() => navigate("Message")}
+            onPress={() => navigate("Message", {chatId: from})}
         >
             
             {!isSeen &&
