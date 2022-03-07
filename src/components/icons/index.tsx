@@ -1,4 +1,4 @@
-import { AntDesign, MaterialCommunityIcons, Feather, MaterialIcons } from '@expo/vector-icons'
+import { AntDesign, MaterialCommunityIcons, Feather, MaterialIcons, Ionicons } from '@expo/vector-icons'
 import React from 'react'
 type IconProps={
     focused?:boolean,
@@ -146,5 +146,20 @@ export const DeliveryClockIcon = ({focused=false, color, size=16}:IconProps) => 
     )
 }
 
+export const BackArrowIcon = ({focused=false, color, size=16}:IconProps) => {
+    return (
+        <Ionicons color={color} size={size} name='chevron-back'  />
+    )
+}
+export const ForwardArrowIcon = ({focused=false, color, size=16}:IconProps) => {
+    return (
+        <Ionicons color={color} size={size} name='chevron-forward'  />
+    )
+}
 
+export const SendIcon = ({focused=false, color, size=16}:IconProps) => {
+    return (
+        <Ionicons color={color} size={size} name='send'  />
+    )
+}
 

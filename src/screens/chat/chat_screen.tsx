@@ -12,7 +12,7 @@ import { MyModal } from '../../components/modals';
 import { Space } from '../../components/util';
 import { ChatEntry, ChatEntryType } from '../../components/content/chat_entry';
 
-type Props = DrawerScreenProps<RootDrawerParamList, 'Chat'>;
+type Props = DrawerScreenProps<RootDrawerParamList, 'ChatStack'>;
 
 
 const chatEntry:ChatEntryType[] = [
