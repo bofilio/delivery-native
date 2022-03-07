@@ -1,7 +1,8 @@
 import 'react-native-gesture-handler';
 import React, { useContext } from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import { ChatScreen, ExploreScreen, FavouriteScreen, ForgotPassScreen, HomeScreen, OrdersScreen, SettingsScreen, SigninScreen, SignupScreen } from '../screens';
+import { ExploreScreen, FavouriteScreen, ForgotPassScreen, HomeScreen, OrdersScreen, SettingsScreen, SigninScreen, SignupScreen } from '../screens';
+import { ChatStack } from './chat_stack'
 import { NavigationContainer } from '@react-navigation/native';
 import { AdditionalDrawerContent } from '../components/menus';
 import { ThemeContext } from '../contexts';
@@ -34,7 +35,7 @@ export function Navigation() {
                 <Drawer.Screen name='Explore' component={ExploreScreen} />
                 <Drawer.Screen name="Favourite" component={FavouriteScreen} />
                 <Drawer.Screen name='Orders' component={OrdersScreen} />
-                <Drawer.Screen name='Chat' component={ChatScreen} />
+                <Drawer.Screen name='Chat' component={ChatStack} />
                 <Drawer.Screen name='Settings' component={SettingsScreen} />
                 <Drawer.Group >
                     <Drawer.Screen name="Signin" component={SigninScreen} options={{ drawerItemStyle: { display: 'flex' } }} />

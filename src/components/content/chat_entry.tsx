@@ -4,6 +4,7 @@ import tailwind from 'tailwind-rn'
 import { ThemeContext } from '../../contexts';
 import { trimString } from '../../helpers';
 import { Ping } from '../util';
+import { useNavigation } from '@react-navigation/native';
 
 type TagType = {
     title: string,
@@ -24,6 +25,8 @@ export type ChatEntryType = {
 }
 
 export const ChatEntry: React.FC<ChatEntryType> = (props) => {
+
+    const { navigate } = useNavigation();
     const { id,
         from,
         imageUrl,
@@ -41,7 +44,7 @@ export const ChatEntry: React.FC<ChatEntryType> = (props) => {
         <Pressable
             style={tailwind('flex flex-row justify-start items-start')}
             android_ripple={{ color: colors.ripple, borderless: false, radius: 1 }}
-            onPress={() => console.log('go to messages')}
+            onPress={() => navigate("Message")}
         >
             
             {!isSeen &&
