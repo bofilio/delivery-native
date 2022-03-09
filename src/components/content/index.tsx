@@ -8,3 +8,4 @@ export * from "./PopularDishes"
 export * from "./FavoriteDishesList"
 export * from './FavoriteRestaurantsList'
 export * from './orders'
+export * from './SettingSection'

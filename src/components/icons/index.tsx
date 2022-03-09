@@ -1,4 +1,4 @@
-import { AntDesign, MaterialCommunityIcons, Feather, MaterialIcons, Ionicons } from '@expo/vector-icons'
+import { AntDesign, MaterialCommunityIcons, Feather, MaterialIcons, Ionicons, Fontisto } from '@expo/vector-icons'
 import React from 'react'
 type IconProps={
     focused?:boolean,
@@ -163,3 +163,44 @@ export const SendIcon = ({focused=false, color, size=16}:IconProps) => {
     )
 }
 
+export const BookmarkIcon = ({focused=false, color, size=16}:IconProps) => {
+    return (
+        <Feather color={color} size={size} name='bookmark'  />
+    )
+}
+
+export const MailIcon = ({focused=false, color, size=16}:IconProps) => {
+    return (
+        <MaterialIcons color={color} size={size} name='mail-outline'  />
+    )
+}
+
+export const WalletIcon = ({focused=false, color, size=16}:IconProps) => {
+    return (
+        <AntDesign color={color} size={size} name='wallet'  />
+    )
+}
+
+export const CreditCardIcon = ({focused=false, color, size=16}:IconProps) => {
+    return (
+        <Fontisto color={color} size={size} name='credit-card'  />
+    )
+}
+
+export const HelpIcon = ({focused=false, color, size=16}:IconProps) => {
+    return (
+        <MaterialCommunityIcons color={color} size={size} name='help-circle-outline'  />
+    )
+}
+
+export const AddUserIcon = ({focused=false, color, size=16}:IconProps) => {
+    return (
+        <Feather color={color} size={size} name='user-plus'  />
+    )
+}
+
+export const MultipleCashIcon = ({focused=false, color, size=16}:IconProps) => {
+    return (
+        <MaterialCommunityIcons color={color} size={size} name='cash-multiple'  />
+    )
+}
